@@ -15,13 +15,14 @@ function onClick() {
 }
 
 const randomMinMax = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
+const d = ref(`M ${randomMinMax(10, 20)} ${randomMinMax(10, 20)} C ${randomMinMax(30, 70)} ${randomMinMax(20, 80)} ${randomMinMax(10, 90)} ${randomMinMax(40, 60)} ${randomMinMax(50, 80)} ${randomMinMax(60, 70)} ${randomMinMax(80, 90)} ${randomMinMax(80, 90)}`)
 </script>
 
 <template>
   <svg viewBox="0 0 100 100" v-if="visible">
     <path
       :id="id"
-      :d="`M ${randomMinMax(10, 20)} ${randomMinMax(10, 20)} C ${randomMinMax(30, 70)} ${randomMinMax(20, 80)} ${randomMinMax(10, 90)} ${randomMinMax(40, 60)} ${randomMinMax(50, 80)} ${randomMinMax(60, 70)} ${randomMinMax(80, 90)} ${randomMinMax(80, 90)}`"
+      :d="d"
       class="fill-transparent stroke-red-500"
     />
 
