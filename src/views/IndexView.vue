@@ -14,8 +14,18 @@ function onClick(letter: string) {
 </script>
 
 <template>
-  <main class="h-screen w-screen">
-    <div class="h-full w-full flex items-center justify-center">
+  <main class="h-screen w-screen overflow-hidden">
+    <div class="py-10 inset-x-0 flex justify-center gap-2 bg-amber-50 z-10 relative">
+      <div v-for="(letter, index) in word" :key="letter"
+           class="border rounded py-2 px-3 text-2xl bg-white uppercase font-extrabold">
+        <p :class="{'text-transparent': index >= letters.length }">
+          {{ letter }}
+        </p>
+
+      </div>
+    </div>
+
+    <div class="h-full w-full flex items-center justify-center relative z-0">
       <ShapeLine
         :letter="letter"
         v-for="letter in splitWord"
@@ -26,16 +36,6 @@ function onClick(letter: string) {
         }"
         @click="onClick(letter)"
       />
-    </div>
-
-    <div class="fixed top-0 py-10 inset-x-0 flex justify-center gap-2 bg-amber-50">
-      <div v-for="(letter, index) in word" :key="letter"
-           class="border rounded py-2 px-3 text-2xl bg-white uppercase font-extrabold">
-        <p :class="{'text-transparent': index >= letters.length - 1}">
-          {{ letter }}
-        </p>
-
-      </div>
     </div>
   </main>
 </template>
