@@ -28,9 +28,10 @@ function onClick(letter: string) {
       />
     </div>
 
-    <div class="fixed bottom-10 inset-x-0 flex justify-center gap-2">
-      <div v-for="(letter, index) in word" :key="letter" class="border rounded p-4">
-        <p v-if="index < letters.length">
+    <div class="fixed top-0 py-10 inset-x-0 flex justify-center gap-2 bg-amber-50">
+      <div v-for="(letter, index) in word" :key="letter"
+           class="border rounded py-2 px-3 text-2xl bg-white uppercase font-extrabold">
+        <p :class="{'text-transparent': index >= letters.length - 1}">
           {{ letter }}
         </p>
 
