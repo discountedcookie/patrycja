@@ -57,7 +57,8 @@ onMounted(() => {
     }">
         <svg viewBox="0 0 1000 1000" ref="el" class="group" @click="onClick"
             :style="{ scale: 1 - Math.sin(0.09 * index) }">
-            <path :id="pathId" d="M 0 500 m -0 0 a 1,1 0 1,0 1000,0 a 1,1 0 1,0 -1000,0" fill="transparent" class="" />
+            <path :id="pathId" d="M 0 500 m -0 0 a 1,1 0 1,0 1000,0 a 1,1 0 1,0 -1000,0" fill="transparent"
+                :class="{ 'group-active:fill-red-500': !elClicked }" />
 
             <text text-anchor="middle" dy="-0.2em" font-size="72px" x="85%">
                 <textPath :href="path">
