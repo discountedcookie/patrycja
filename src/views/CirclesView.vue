@@ -38,7 +38,9 @@ onMounted(() => {
             .fill('transparent')
             .addClass('group-hover:fill-red-500')
             .click(() => {
-                breatheAnimation.reset()
+                breatheAnimation.pause()
+                breatheAnimation.seek(0)
+
                 rotatingAnimation.play()
 
                 el.classList.add('pointer-events-none')
