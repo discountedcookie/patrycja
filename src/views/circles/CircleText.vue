@@ -20,13 +20,13 @@ const styleValue = computed(() => {
         return props.style
     }
 })
+
 const breatheAnimation = ref<AnimeInstance>()
 
 function onClick() {
     elClicked.value = true;
 
     breatheAnimation.value?.pause()
-    breatheAnimation.value?.seek(0)
 
     anime({
         targets: el.value,
@@ -51,14 +51,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="absolute inset-x-0 origin-center active:z-10 transition-transform duration-[3s]" :style="styleValue"
+    <div class="absolute inset-x-0 origin-center active:z-10 transition-transform duration-[2.5s]" :style="styleValue"
         :class="{
         'pointer-events-none': elClicked
     }">
         <svg viewBox="0 0 1000 1000" ref="el" class="group" @click="onClick"
             :style="{ scale: 1 - Math.sin(0.09 * index) }">
-            <path :id="pathId" d="M 0 500 m -0 0 a 1,1 0 1,0 1000,0 a 1,1 0 1,0 -1000,0" fill="transparent"
-                :class="{ 'group-active:fill-red-500': !elClicked }" />
+            <path :id="pathId" d="M 0 500 m -0 0 a 1,1 0 1,0 1000,0 a 1,1 0 1,0 -1000,0" fill="transparent" />
 
             <text text-anchor="middle" dy="-0.2em" font-size="72px" x="85%">
                 <textPath :href="path">
